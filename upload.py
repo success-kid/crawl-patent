@@ -38,7 +38,10 @@ for d in dirs:
     print(d, "dir start!")
     files = os.listdir(os.path.join(datadir, d))
     for f in files:
-        g_path = os.path.join(d, f).replace('\\', '/')
+        # path for google
+        g_path = os.path.join(datadir, d, f).replace('\\', '/')
         blob = bucket.blob(g_path)
+        
+        # loacal path
         path = os.path.join(datadir, d, f)
         blob.upload_from_filename(path)
