@@ -14,5 +14,6 @@ bucket = conn.get_bucket(bucket_name)
 k = Key(bucket)
 
 for f in sys.argv[1:]:
+    print(f, 'started')
     k.key = "patent/" + f
     k.set_contents_from_filename(f)
